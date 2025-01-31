@@ -10,6 +10,7 @@ import {
 } from '@xyflow/react';
  
 import '@xyflow/react/dist/style.css';
+import "tailwindcss";
  
 const initialNodes = [
   { id: '1', position: { x: 600, y: 0 }, data: { label: 'Task' } },
