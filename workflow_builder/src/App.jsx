@@ -128,7 +128,7 @@ const Flow = () => {
       <MiniMap/>
       <Controls/>
     </ReactFlow>
-    <FormNode/>
+    
     </div>
   );
 };
