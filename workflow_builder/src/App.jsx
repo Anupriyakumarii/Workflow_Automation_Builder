@@ -73,11 +73,9 @@ import {
 
 import '@xyflow/react/dist/style.css';
 import "tailwindcss";
-
-
 import { initialNodes, initialEdges } from './components/initialElement';
-// import ContextMenu from './ContextMenu';
 import ContextMenu from './components/ContextMenu';
+import FormNode from './components/FormNode';
 
 const Flow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
