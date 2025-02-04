@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from "react";
 import {
   ReactFlow,
   Background,
@@ -7,16 +7,15 @@ import {
   addEdge,
   MiniMap,
   Controls,
+  ReactFlowProvider,
   Panel,
   // applyNodeChanges,
   // applyEdgeChanges,
-} from '@xyflow/react';
+} from "@xyflow/react";
 
-import '@xyflow/react/dist/style.css';
-import "tailwindcss";
-import { initialNodes, initialEdges } from './components/initialElement';
-import ContextMenu from './components/ContextMenu';
-import FormNode from './components/FormNode';
+import "@xyflow/react/dist/style.css";
+import { initialNodes, initialEdges } from "./components/initialElement";
+import ContextMenu from "./components/ContextMenu";
 
 const Flow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -26,7 +25,7 @@ const Flow = () => {
 
   const onConnect = useCallback(
     (params) => setEdges((els) => addEdge(params, els)),
-    [setEdges],
+    [setEdges]
   );
 
   const onNodeContextMenu = useCallback(
@@ -42,34 +41,37 @@ const Flow = () => {
           event.clientY >= pane.height - 200 && pane.height - event.clientY,
       });
     },
-    [setMenu],
+    [setMenu]
   );
 
   // Close the context menu if it's open whenever the window is clicked.
   const onPaneClick = useCallback(() => setMenu(null), [setMenu]);
 
- 
-  
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
-    <ReactFlow
-      ref={ref}
-      nodes={nodes}
-      edges={edges}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
-      onConnect={onConnect}
-      onPaneClick={onPaneClick}
-      onNodeContextMenu={onNodeContextMenu}
-      fitView
-      style={{ backgroundColor: "#F7F9FB" }}
+    <div
+      className="reactflow-wrapper"
+      style={{ width: "100vw", height: "100vh" }}
     >
-      <Background />
-      {menu && <ContextMenu onClick={onPaneClick} {...menu} />}
-      <MiniMap/>
-      <Controls/>
-    </ReactFlow>
-    
+      <ReactFlowProvider>
+        <ReactFlow
+          ref={ref}
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onConnect={onConnect}
+          onPaneClick={onPaneClick}
+          onNodeContextMenu={onNodeContextMenu}
+          fitView
+          style={{ backgroundColor: "#F7F9FB", width: "80%" }}
+        >
+          <Background />
+          {menu && <ContextMenu onClick={onPaneClick} {...menu} />}
+          <MiniMap />
+          <Controls />
+        </ReactFlow>
+        <FormNode />
+      </ReactFlowProvider>
     </div>
   );
 };
