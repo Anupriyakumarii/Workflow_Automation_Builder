@@ -179,6 +179,16 @@ const WorkflowBuilder = () => {
     };
     setNodes((nds) => [...nds, newNode]);
   };
+  function nodeColor(node) {
+    switch (node.type) {
+      case "input":
+        return "#6ede87";
+      case "output":
+        return "#6865A5";
+      default:
+        return "#ECDFCC";
+    }
+  }
 
   return (
     <div className="workflow-builder">
@@ -225,7 +235,7 @@ const WorkflowBuilder = () => {
         >
           <Background />
           <Controls />
-          <MiniMap />
+          <MiniMap pannable zoomable nodeColor={nodeColor} />
           <Panel position="top-left">
             <select onChange={onChange} data-testid="colormode-select">
               <option value="dark">dark</option>
