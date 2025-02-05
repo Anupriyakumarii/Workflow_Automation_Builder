@@ -27,11 +27,6 @@ npm i lucide-react
 ->useState is used for selected node management and UI state like colorMode.
 ->useCallback optimizes performance by memoizing event handlers like onConnect, onNodeClick, handleNodeUpdate and deleteNode.
 
-## Form Handling in Node Configuration Panel
-
-A simple <form> is used instead of external state management libraries like React Hook Form for better flexibility in node updates.
-FormData is leveraged to extract and update node data dynamically.
-
 **User Interaction:** Users can add, update, or delete nodes easily. The configuration panel provides a straightforward way to modify node properties. This enhances the user experience by making the workflow design intuitive.
 
 **UI Design:** A simple and clean UI is implemented using CSS to ensure that the workflow builder is user-friendly while maintaining a professional appearance.
