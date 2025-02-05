@@ -6,6 +6,8 @@ import {
   Controls,
   MiniMap,
   Panel,
+  Handle,
+  Position,
   useNodesState,
   useEdgesState,
   addEdge,
@@ -22,6 +24,9 @@ const TaskNode = ({ data }) => (
       <div>Assignee: {data.assignee || "Unassigned"}</div>
       <div>Due: {data.dueDate || "No date set"}</div>
     </div>
+    {/* Add connection handles */}
+    <Handle type="source" position={Position.Right} />
+    <Handle type="target" position={Position.Left} />
   </div>
 );
 
@@ -31,6 +36,9 @@ const ConditionNode = ({ data }) => (
     <div className="node-content">
       <div>Condition: {data.condition || "Not set"}</div>
     </div>
+    {/* Add connection handles */}
+    <Handle type="source" position={Position.Right} />
+    <Handle type="target" position={Position.Left} />
   </div>
 );
 
@@ -41,6 +49,9 @@ const NotificationNode = ({ data }) => (
       <div>To: {data.recipient || "No recipient"}</div>
       <div>Message: {data.message || "No message"}</div>
     </div>
+    {/* Add connection handles */}
+    <Handle type="source" position={Position.Right} />
+    <Handle type="target" position={Position.Left} />
   </div>
 );
 
@@ -128,11 +139,10 @@ const NodeConfigPanel = ({ node, onUpdate, onDelete, onClose }) => {
           Delete Node
         </button>
       </form>
+      <div className="another"></div>
     </div>
   );
 };
-{
-}
 
 const WorkflowBuilder = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
@@ -144,6 +154,7 @@ const WorkflowBuilder = () => {
     (params) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
   );
+
   const onChange = (evt) => {
     setColorMode(evt.target.value);
   };
