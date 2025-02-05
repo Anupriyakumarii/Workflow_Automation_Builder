@@ -12,7 +12,7 @@ import {
   useEdgesState,
   addEdge,
 } from "@xyflow/react";
-import { TrashIcon, Settings2Icon, PlusIcon } from "lucide-react";
+import { PlusIcon } from "lucide-react";
 import "@xyflow/react/dist/style.css";
 import "./WorkflowBuilder.css";
 
