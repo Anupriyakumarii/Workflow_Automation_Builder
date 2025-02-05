@@ -10,6 +10,7 @@ The Workflow Builder is a React application that allows users to create and mana
 
 First, clone the repository to your local machine:
 Run the following commands to install the required packages:
+
 npm install @xyflow/react
 
 npm install react-hook-form
