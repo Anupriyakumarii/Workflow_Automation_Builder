@@ -6,13 +6,15 @@ The Workflow Builder is a React application that allows users to create and mana
 
 ## Instructions to Run the Project Locally
 
-1. **Clone the Repository**
+**Clone the Repository**
 
-   First, clone the repository to your local machine:
-   Run the following commands to install the required packages:
-   npm install @xyflow/react
-   npm install react-hook-form
-   npm i lucide-react
+First, clone the repository to your local machine:
+Run the following commands to install the required packages:
+npm install @xyflow/react
+
+npm install react-hook-form
+
+npm i lucide-react
 
 ## Design Decisions and Trade-offs
 
